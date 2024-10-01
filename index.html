@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    
+    <title>Jinho Portfolio</title>
+
+    <meta name="apple-mobile-web-app-title" content="" />
+    <meta name="robots" content="index,follow"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+    <meta property="og:title" id="meta_og_title" content="">
+    <meta property="og:url" id="meta_og_url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:description" id="meta_og_description" content=""/>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:description" content=""/>
+
+    <!-- fonts : pretendard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
+
+    <!--style -->
+    <link rel="stylesheet" type="text/css" corssorigin href="./resource/css/reset.css"/>
+
+    <link rel="stylesheet" type="text/css" corssorigin href="./resource/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="./resource/css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="./resource/css/main.css"/>
+
+
+    <!-- locomotive-scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
+
+    <!--lib / gsap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.6.3/smooth-scrollbar.js" ></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <main id="container">
+        <div id="header"> 
+            <div class="h_inner">
+                <h1 class="logo">
+                    <svg width="60" height="98" viewBox="0 0 60 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.65842 7C18.4819 33 19.9826 95.5 8.48205 95.5C-3.01851 95.5 1.48132 77.5 16.4815 51.5C34.4815 30 30.3962 7 31.6592 7C32.9817 7 21.4817 96.5 29.1594 96.5C38.4817 96.5 30.5996 35 45.9817 35C60.9817 35 34.4817 96.5 58.1593 96.5" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M6.98132 2C6.98132 2.82843 6.30975 3.5 5.48132 3.5C4.6529 3.5 3.98132 2.82843 3.98132 2C3.98132 1.17157 4.6529 0.5 5.48132 0.5C6.30975 0.5 6.98132 1.17157 6.98132 2Z" stroke="white"/>
+                        <circle cx="32.4813" cy="2" r="1.5" stroke="white"/>
+                    </svg>                        
+                </h1>
+                <button class="toggle_btn"><span class="line"></span></button>
+            </div>
+        </div>
+        <div id="allMenu" class="all_menu">
+            <svg>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </svg>
+            <canvas id="bubble" class="bubble bubble_cvs"></canvas>
+            <div class="inner">
+                <ul class="gnb on">
+                    <li class="dep1"><a href="/index.html" class="dep_tit">Main</a></li>
+                    <li class="dep1"><button type="button" name="about" class="dep_tit">About</button></li>
+                    <li class="dep1"><button type="button" name="works" class="dep_tit">Works</button></li>
+                </ul>
+            </div>
+        </div>
+        <section id="con" data-scroll-container>
+
+            <article class="cvs_wrap main_cont" >
+                <canvas id="cvs"></canvas>
+                <div class="tit_wrap">
+                    <h2 class="main_tit">
+                        JINHO<br>
+                        PORTFOLIO
+                    </h2>
+                </div>
+            </article>
+    
+            <!-- main_cont :: e -->
+    
+            <article class="about_wrap main_cont" >
+                <div class="wrap">
+                    <h2 class="cont_tit">About Me</h2>
+                    <div class="txt_box">
+                        <p class="main_txt">
+                            <strong class="point">이진호<span class="subs">LeeJinHo</span></strong>
+                            안녕하세요. 5년차 웹 퍼블리셔 이진호입니다.
+                            <br><br>
+                            웹 표준과 웹 접근성을 준수한 마크업을 지향하며 <br>
+                            HTML, CSS, SASS, Jquery, Javascript를 기반으로 <br>
+                            다양한 인터렉션을 구현하는것에 관심을 갖고 있으며, <br>
+                            웹 에이전시 근무 경험을 바탕으로 ASP, PHP, Java Spring 환경에서의 <br>
+                            작업 경험이 있습니다.
+                            <br><br>
+                            현재는 프리랜서로 그누보드, 영카트 환경에서 PHP언어를 포함한 작업을 하고 있습니다.
+                        </p>
+                        <ul class="skill_lists">
+                            <li class="skill_item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M0-360v-240h60v80h80v-80h60v240h-60v-100H60v100H0Zm310 0v-180h-70v-60h200v60h-70v180h-60Zm170 0v-200q0-17 11.5-28.5T520-600h180q17 0 28.5 11.5T740-560v200h-60v-180h-40v140h-60v-140h-40v180h-60Zm320 0v-240h60v180h100v60H800Z"/></svg></li>
+                            <li class="skill_item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M420-360q-17 0-28.5-11.5T380-400v-40h60v20h80v-40H420q-17 0-28.5-11.5T380-500v-60q0-17 11.5-28.5T420-600h120q17 0 28.5 11.5T580-560v40h-60v-20h-80v40h100q17 0 28.5 11.5T580-460v60q0 17-11.5 28.5T540-360H420Zm260 0q-17 0-28.5-11.5T640-400v-40h60v20h80v-40H680q-17 0-28.5-11.5T640-500v-60q0-17 11.5-28.5T680-600h120q17 0 28.5 11.5T840-560v40h-60v-20h-80v40h100q17 0 28.5 11.5T840-460v60q0 17-11.5 28.5T800-360H680Zm-520 0q-17 0-28.5-11.5T120-400v-160q0-17 11.5-28.5T160-600h120q17 0 28.5 11.5T320-560v40h-60v-20h-80v120h80v-20h60v40q0 17-11.5 28.5T280-360H160Z"/></svg></li>
+                            <li class="skill_item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M300-360q-25 0-42.5-17.5T240-420v-40h60v40h60v-180h60v180q0 25-17.5 42.5T360-360h-60Zm220 0q-17 0-28.5-11.5T480-400v-40h60v20h80v-40H520q-17 0-28.5-11.5T480-500v-60q0-17 11.5-28.5T520-600h120q17 0 28.5 11.5T680-560v40h-60v-20h-80v40h100q17 0 28.5 11.5T680-460v60q0 17-11.5 28.5T640-360H520Z"/></svg></li>
+                            <li class="skill_item"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M120-360v-240h140q24 0 42 18t18 42v40q0 24-18 42t-42 18h-80v80h-60Zm260 0v-240h60v80h80v-80h60v240h-60v-100h-80v100h-60Zm280 0v-240h140q24 0 42 18t18 42v40q0 24-18 42t-42 18h-80v80h-60ZM180-500h80v-40h-80v40Zm540 0h80v-40h-80v40Z"/></svg></li>
+                        </ul>
+                    </div>
+                    <div class="cube_box">
+                        <div class="inner">
+                            <div class="cube">
+                                <div class="floor f1">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="floor f2">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="floor f3">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="floor f4">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="floor f5">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="floor f6">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="floor f7">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="floor f8">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="floor f9">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="floor f10">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                </div>
+                                <div class="floor f11">
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span><span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+    
+            <article class="works_wrap main_conts" >
+                <div class="bg"><canvas class="star" id="star"></canvas></div>
+                <div class="works_lists">
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/megature_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit" data-anim="fade-up">유한양행 메가트루</h3>
+                            <a href="https://megatrue.co.kr/" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">php</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                유한양행에서 출시한 메가 비타민 메가트루를 소개하는 프로젝트를 진행하였습니다.
+                                <br>
+                                첫 페이지에 유일한 박사와 유한양행의 히스토리를 패럴랙스 형식으로 구성하여 역동적으로 변화하는 느낌을 주었으며, 
+                                <br>
+                                사용자에게 맞는 비타민을 골라주는 선택지를 제공해주어 구매 전환율을 높여줍니다.
+                                <br>
+                                또한 모든 디바이스 환경을 고려하여 반응형으로 제작을 하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/brand_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3  data-anim="fade-up" class="tit">HL브랜드포털</h3>
+                            <!-- <a  href="#" data-anim="fade-up" class="lnk more">More</a> -->
+                            <ul  data-anim="fade-up" class="works_infos">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">canvas</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">php</li>
+                            </ul>
+                            <p  data-anim="fade-up" class="conts">
+                                HL 브랜드포털은 기업의 브랜드 가이드라인을 볼 수 있는 사이트로 사용자에게 정보전달이 편리하도록 설계하였습니다.
+                                <br>
+                                메인 페이지에서는 검색창 위에 배너를 두어 포털 사이트 느낌을 강조하였습니다. 
+                                <br>
+                                또한 레이아웃과 라인을 활용해깔끔하고 정돈되어 보이게 정보를 나누었습니다. 
+                                <br>
+                                컬러와 브랜드 그래픽 모티프를 전체메뉴, 버튼 등 곳곳에 활용해 강조하였습니다.
+                                <br>
+                                사용자의 편의성을 고려해 반응형으로 구현하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/fis_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">DB FIS</h3>
+                            <a href="https://dbfis.co.kr/" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 40%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">java</li>
+                                <li class="skill works_info">handlebar.js</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                DB FIS는 DB Inc.의 자회사로서, DB그룹 금융계열사의 IT Outsourcing 서비스를 담당하고 있습니다.
+                                <br>
+                                사용자의 편의성을 고려한 접근성을 높인 메인구성을 통해 사이트의 아이덴티티를 높였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/inc_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">DB Inc</h3>
+                            <a href="https://dbinc.co.kr/" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">java</li>
+                                <li class="skill works_info">handlebar.js</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                DB Inc.는 DB그룹 계열의 IT서비스 및 무역 전문을 전문으로 하는 기업입니다.이미지를 통해 사업의 의미를 직관적으로 전달하였고 사업 분야가 다양하지만 유사한 톤으로 구성하였습니다.아이덴티티 컬러를 사용해 DB그룹과의 통일성을 고려하였으며, 여백과 화이트를 활용해 가시성 심미성을 높였습니다.사용자의 편의성을 고려해 반응형으로 구현하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/eureka_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">HL Eureka</h3>
+                            <!-- <a href="#" target="_blank" class="lnk more"  data-anim="fade-up">More</a> -->
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">php</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                HL Eureka는 HL그룹 내 다양한 아이디어를 관리하고 구체화하는 플랫폼 사이트입니다.
+                                <br>
+                                아이디어 등록부터 심사까지 여러 단계의 프로세스를 쉽게 확인할 수 있도록 사용성을 고려한 ui설계와 
+                                <br>
+                                신선함, 젊음, 활기찬 분위기를 보여주기 위해 HL그룹의 모티프를 활용한 라인 일러스트를 배치하였습니다.
+                                <br>
+                                또한 다양한 디바이스 환경을 고려하여 반응형으로 제작하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/code_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">HL 냉장</h3>
+                            <a href="https://hlcoldstorage.com/" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">php</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                HL 냉장은 맞춤형 냉장·냉동 물류 서비스를 제공하는 기업으로 사용자에게 정보전달이 용이하도록 설계하였습니다.
+                                <br>
+                                메인 페이지에서는 HL을 라인으로 표현하여 모션을 통해 아이덴티티를 강화하고자 하였습니다.
+                                <br>
+                                컬러와 브랜드 그래픽 모티프를 전체메뉴, 버튼, 탭메뉴 등 곳곳에 활용해 강조하였습니다.
+                                <br>
+                                사용자의 편의성을 고려해 반응형으로 구현하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/samchully_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">삼천리ES</h3>
+                            <a href="https://samchullyes.co.kr/" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">three.js</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">php</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                삼천리ES는 에너지·환경 전문 솔루션 기업으로 웹사이트에도 그 가치를 반영하고자 하였습니다.
+                                <br>
+                                자연의 이미지를 활용해 환경 전문이라는 의미를 직접적으로 전달하며, 
+                                <br>
+                                가독성과 가시성을 해치지 않는 선에서 트렌드를 반영하였습니다.
+                                <br>
+                                컬러는 채도와 명도를 높여 밝고 깨끗한 이미지로 작업하였고 여백 또한 적절히 활용하여 동일한 느낌을 주었습니다.
+                                <br>
+                                사용자의 편의성을 고려해 반응형으로 구현하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/hy_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">hy사회복지재단</h3>
+                            <a href="https://ybz.or.kr" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                ‘hy사회복지재단’은 다양한 복지사업을 통해 지역사회와 함께하는 건강한 나눔을 실천하고자 합니다.
+                                <br>
+                                높은 채도의 컬러를 활용하여 밝고 긍정적인 느낌을 줄 수 있도록 디자인 하였으며,
+                                <br>
+                                모바일 환경에서도 대응하는 반응형 웹으로 제작되었습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/neutrino_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">Neutrino 2022</h3>
+                            <a href="https://neutrino2022.org/" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 50%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">php</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                국제학술대회 사이트를 구축하는 프로젝트를 진행하였습니다. 
+                                <br>
+                                글로벌하고 전문적인 느낌을 보여줄 수 있도록 메인 비주얼을 풀페이지로 구성하였고 
+                                <br>
+                                전달하는 정보가 많기 때문에 가독성을 고려하여 디자인을 하였습니다. 
+                                <br>
+                                그리고 다양한 디바이스 환경에서도 대응할 수 있도록 반응형 작업으로 진행하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="works_item">
+                        <div class="img_box">
+                            <img src="/resource/images/aocr_visual.jpg" alt="">
+                        </div>
+                        <div class="txt_box">
+                            <h3 class="tit"  data-anim="fade-up">KCR2023</h3>
+                            <a href="https://kcr4u.org" target="_blank" class="lnk more"  data-anim="fade-up">More</a>
+                            <ul class="works_infos"  data-anim="fade-up">
+                                <li class="works_info">기여도: 100%</li>
+                                <li class="skill works_info">gsap</li>
+                                <li class="skill works_info">javascript</li>
+                                <li class="skill works_info">sass</li>
+                                <li class="skill works_info">php</li>
+                                <li class="skill works_info">html2canvas</li>
+                            </ul>
+                            <p class="conts"  data-anim="fade-up">
+                                KCR2023 웹사이트는 사용자의 정보전달과 사용성을 우선으로 둔 직관적인 디자인을 목표로 진행하였습니다.
+                                <br>
+                                메인 비주얼은 보편적인 레이아웃을 탈피하고자 마우스 오버를 통해 화면이 전환되는 디자인을 하였습니다.
+                                <br>
+                                의학, 의료를 연상시키는 패턴과 이미지를 활용하여 사이트 전체에 통일감을 주었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <script src="/resource/js/common.js"></script>
+    <script src="/resource/js/layout.js"></script>
+    <script src="/resource/js/main.js"></script>
+    <script src="/resource/js/sub.js"></script>
+</body>
+</html>
